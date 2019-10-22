@@ -1,5 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
+mongoose
+  .connect(
+    "mongodb+srv://openclassroom:openclassroom@openclassroomdb-1f0ft.mongodb.net/test?retryWrites=true&w=majority",
+    { useUnifiedTopology: true }
+  )
+  .then(() => {
+    console.log("Successfully connected to MongoDB Atlas!");
+  })
+  .catch(error => {
+    console.log("Unable to connect to MongoDB Atlas!");
+    console.error(error);
+  });
 
 const app = express();
 
